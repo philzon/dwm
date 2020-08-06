@@ -62,16 +62,11 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *termfallbackcmd[]  = { "xterm", NULL };
-static const char *mutecmd[] = { "amixer set Master toggle", NULL };
-static const char *volinccmd[] = { "amixer sset Master 5%+", NULL };
-static const char *voldeccmd[] = { "amixer sset Master 5%-", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_x,      spawn,          {.v = termfallbackcmd } },
 	{ MODKEY,                       XK_F10,    spawn,          {.v = mutecmd } },
 	{ MODKEY,                       XK_F11,    spawn,          {.v = volinccmd } },
 	{ MODKEY,                       XK_F12,    spawn,          {.v = voldeccmd } },
@@ -95,9 +90,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_Left,   focusmon,       {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_Right,  focusmon,       {.i = +1 } },
-	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
-	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
