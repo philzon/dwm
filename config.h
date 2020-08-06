@@ -67,9 +67,9 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_F10,    spawn,          {.v = mutecmd } },
-	{ MODKEY,                       XK_F11,    spawn,          {.v = volinccmd } },
-	{ MODKEY,                       XK_F12,    spawn,          {.v = voldeccmd } },
+	{ MODKEY,                       XK_F10,    spawn,          SHCMD("vol-toggle") },
+	{ MODKEY,                       XK_F11,    spawn,          SHCMD("vol-dec") },
+	{ MODKEY,                       XK_F12,    spawn,          SHCMD("vol-inc") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_Right,  focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_Left,   focusstack,     {.i = -1 } },
